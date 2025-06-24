@@ -112,15 +112,23 @@ public class ProcessRailway implements Profile {
                     .setAttr("voltage", sourceFeature.getTag("voltage"))
                     .setAttr("frequency", sourceFeature.getTag("frequency"))
                     .setAttr("maxspeed", sourceFeature.getTag("maxspeed"))
+                    .setAttr("branch", branch)
+                    .setAttr("mainline", main)
+                    .setAttr("highspeed", sourceFeature.getTag("highspeed"))
+                    .setAttr("subway", sourceFeature.getTag("subway"))
                     // don't filter out short line segments even at low zooms because the next step
                     // needs them
                     // to merge lines with the same tags where the endpoints are touching
                     .setMinPixelSize(0);
         }
 
-        if (sourceFeature.isPoint() && sourceFeature.hasTag("railway", "signal", "station", "switch", "crossing",
+        if (sourceFeature.isPoint() && sourceFeature.hasTag("railway", "signal", "switch", "crossing",
                 "level_crossing", "railway_crossing", "tram_level_crossing", "tram_stop", "subway_entrance", "stop")) {
-            features.point(sourceFeature.getTag("railway").toString());
+            features.point(sourceFeature.getTag("railway").toString()).setAttr("name", sourceFeature.getTag("name"));
+        }
+
+        if (sourceFeature.isPoint() && sourceFeature.hasTag("public_transport", "station")) {
+            features.point("station").setAttr("name", sourceFeature.getTag("name"));
         }
 
         if (sourceFeature.hasTag("railway", "platform")) {
