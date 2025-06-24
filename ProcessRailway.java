@@ -95,8 +95,9 @@ public class ProcessRailway implements Profile {
             String railway = construction ? sourceFeature.getTag("construction", "").toString()
                     : sourceFeature.getTag("railway").toString();
 
-            boolean service = sourceFeature.hasTag("service", "yard", "spur", "siding", "crossover")
-                    || sourceFeature.hasTag("usage", "branch");
+            boolean service = sourceFeature.hasTag("service", "yard", "spur", "siding", "crossover");
+            boolean branch = sourceFeature.hasTag("usage", "branch");
+            boolean main = sourceFeature.hasTag("usage", "main");
 
             features.line(railway)
                     .setAttr("relation_name", relation_name)
