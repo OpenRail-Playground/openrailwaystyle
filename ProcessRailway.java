@@ -68,7 +68,7 @@ public class ProcessRailway implements Profile {
     public void processFeature(SourceFeature sourceFeature, FeatureCollector features) {
         // ignore nodes and ways that should only be treated as polygons
         if (sourceFeature.canBeLine()
-                && sourceFeature.hasTag("railway", "rail", "subway", "light_tram", "construction", "funicular",
+                && sourceFeature.hasTag("railway", "rail", "subway", "light_rail", "construction", "funicular",
                         "abandoned", "disused", "narrow_gauge", "monorail", "tram")) {
             // get all the RouteRelationInfo instances we returned from
             // preprocessOsmRelation that this way belongs to
