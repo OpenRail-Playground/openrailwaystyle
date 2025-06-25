@@ -10,17 +10,17 @@
   <div id="map" style="width: 100%; height: 100vh;"></div>
   <script type="module">
     import maplibregl from "https://cdn.jsdelivr.net/npm/maplibre-gl@5.1.0/+esm"
-    import { Protocol } from "https://cdn.jsdelivr.net/npm/pmtiles@4.2.1/+esm"
+    import {Protocol} from "https://cdn.jsdelivr.net/npm/pmtiles@4.2.1/+esm"
 
     let protocol = new Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
 
     const map = new maplibregl.Map({
-      style: "https://tuiles.enliberte.fr/styles/bright.json",
+      style: "european_train_spotter.style.json",
       container: "map",
-      center: [2.40, 48.87],
-      zoom: 13,
-      attributionControl: { customAttribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' },
+      center: [7.1, 47.6],
+      zoom: 4,
+      attributionControl: {customAttribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'},
     })
   </script>
 </body>
