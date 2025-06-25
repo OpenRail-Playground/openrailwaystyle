@@ -19,8 +19,8 @@
       "url": "pmtiles://https://tristram.nbg1.your-objectstorage.com/europe.3.pmtiles"
     }
   },
-  "sprite": "https://api.maptiler.com/maps/openstreetmap/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+  "sprite": "https://osm.nbg1.your-objectstorage.com/sprites/basic",
+  "glyphs": "https://osm.nbg1.your-objectstorage.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
