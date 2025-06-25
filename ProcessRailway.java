@@ -99,43 +99,60 @@ public class ProcessRailway implements Profile {
             boolean branch = sourceFeature.hasTag("usage", "branch");
             boolean main = sourceFeature.hasTag("usage", "main");
 
-            features.line(railway)
+            var layer = main ? "main" : branch ? "branch" : service ? "service" : railway;
+
+            if (main && sourceFeature.hasTag("electrified") && relation_name != null) {
+                features.line(layer)
+                        .setMaxZoom(10)
+                        .setAttr("highspeed", sourceFeature.getTag("highspeed"))
+                        // don't filter out short line segments even at low zooms because the next step
+                        // needs them
+                        // to merge lines with the same tags where the endpoints are touching
+                        .setMinPixelSize(0);
+            }
+
+            features.line(layer)
+                    .setMinZoom(10)
                     .setAttr("relation_name", relation_name)
                     .setAttr("relation_ref", relation_ref)
                     .setAttr("relation_colour", relation_colour)
                     .setAttr("relation_network", relation_network)
                     .setAttr("construction", construction)
-                    .setAttr("service", service)
                     .setAttr("electrified", sourceFeature.getTag("electrified"))
                     .setAttr("tunnel", sourceFeature.getTag("tunnel"))
                     .setAttr("bridge", sourceFeature.getTag("bridge"))
                     .setAttr("voltage", sourceFeature.getTag("voltage"))
                     .setAttr("frequency", sourceFeature.getTag("frequency"))
                     .setAttr("maxspeed", sourceFeature.getTag("maxspeed"))
-                    .setAttr("branch", branch)
-                    .setAttr("mainline", main)
                     .setAttr("highspeed", sourceFeature.getTag("highspeed"))
                     .setAttr("subway", sourceFeature.getTag("subway"))
                     // don't filter out short line segments even at low zooms because the next step
                     // needs them
                     // to merge lines with the same tags where the endpoints are touching
                     .setMinPixelSize(0);
+
         }
 
         if (sourceFeature.isPoint() && sourceFeature.hasTag("railway", "signal", "switch", "crossing",
                 "level_crossing", "railway_crossing", "tram_level_crossing", "tram_stop", "subway_entrance", "stop")) {
-            features.point(sourceFeature.getTag("railway").toString()).setAttr("name", sourceFeature.getTag("name"));
+            features.point(sourceFeature.getTag("railway").toString()).setAttr("name", sourceFeature.getTag("name"))
+                    .setMinZoom(12);
         }
 
         if (sourceFeature.isPoint() && sourceFeature.hasTag("public_transport", "station")) {
-            features.point("station").setAttr("name", sourceFeature.getTag("name"));
+            if (sourceFeature.hasTag("railway", "station")) {
+                features.point("railway_station").setAttr("name", sourceFeature.getTag("name")).setMinZoom(8);
+            } else {
+                features.point("station").setAttr("name", sourceFeature.getTag("name")).setMinZoom(10);
+            }
+
         }
 
         if (sourceFeature.hasTag("railway", "platform")) {
             if (sourceFeature.canBeLine() && !sourceFeature.canBePolygon()) {
-                features.line("platforms_line").setAttr("subway", sourceFeature.getTag("subway"));
+                features.line("platforms_line").setAttr("subway", sourceFeature.getTag("subway")).setMinZoom(14);
             } else if (sourceFeature.canBePolygon()) {
-                features.polygon("platforms").setAttr("subway", sourceFeature.getTag("subway"));
+                features.polygon("platforms").setAttr("subway", sourceFeature.getTag("subway")).setMinZoom(14);
             }
         }
     }
@@ -156,7 +173,7 @@ public class ProcessRailway implements Profile {
         // touch.
         // Tiles are 256x256 pixels and all FeatureMerge operations work in tile pixel
         // coordinates.
-        return FeatureMerge.mergeLineStrings(items, 0.5, // after merging, remove lines that are still less than 0.5px
+        return FeatureMerge.mergeLineStrings(items, 0.2, // after merging, remove lines that are still less than 0.5px
                                                          // long
                 0.1, // simplify output linestrings using a 0.1px tolerance
                 4 // remove any detail more than 4px outside the tile boundary
