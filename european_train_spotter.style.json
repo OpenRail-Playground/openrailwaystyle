@@ -12,7 +12,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL"
+      "url": "pmtiles://https://osm.nbg1.your-objectstorage.com/planet.pmtiles"
     },
     "Hack4RailRailways": {
       "type": "vector",
