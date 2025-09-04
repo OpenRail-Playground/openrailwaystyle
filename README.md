@@ -37,9 +37,9 @@ Similarly, only some tags from OpenStreetMap are used. There are conventions suc
 
 However, for this project, the usual data schemes doesn’t have enough details for railway specific rendering and we
 
-For this preprocessing, we use the tool [planetiler](https://github.com/onthegomap/planetiler). The file [ProcessRailway.java] contains all the specific configuration.
+For this preprocessing, we use the tool [planetiler](https://github.com/onthegomap/planetiler). The file [ProcessRailway.java](ProcessRailway.java) contains all the specific configuration.
 
-Read the [justfile] to see how to run the processing different steps.
+Read the [justfile](justfile) to see how to run the processing different steps.
 
 ## Going further
 
