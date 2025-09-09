@@ -105,6 +105,7 @@ public class ProcessRailway implements Profile {
                 features.line(layer)
                         .setMaxZoom(10)
                         .setAttr("highspeed", sourceFeature.getTag("highspeed"))
+                        .setAttr("construction", construction ? "yes" : "no")
                         // don't filter out short line segments even at low zooms because the next step
                         // needs them
                         // to merge lines with the same tags where the endpoints are touching
@@ -117,7 +118,7 @@ public class ProcessRailway implements Profile {
                     .setAttr("relation_ref", relation_ref)
                     .setAttr("relation_colour", relation_colour)
                     .setAttr("relation_network", relation_network)
-                    .setAttr("construction", construction)
+                    .setAttr("construction", construction ? "yes" : "no")
                     .setAttr("electrified", sourceFeature.getTag("electrified"))
                     .setAttr("tunnel", sourceFeature.getTag("tunnel"))
                     .setAttr("bridge", sourceFeature.getTag("bridge"))
