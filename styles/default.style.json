@@ -427,6 +427,41 @@
       }
     },
     {
+      "id": "rail-main-railway-casing",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "minzoom": 0,
+      "filter": ["all", ["!=", "highspeed", "yes"]],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round",
+        "line-miter-limit": 1,
+        "line-round-limit": 1
+      },
+      "paint": {
+        "line-width": {"stops": [[2, 0], [3, 0.2], [7, 1.5], [10, 4]]},
+        "line-gap-width": 0,
+        "line-color": "rgba(145, 52, 0, 1)"
+      }
+    },
+    {
+      "id": "rail-high-speed-rail-casing",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "filter": [
+        "all",
+        ["==", "highspeed", "yes"],
+        ["!=", "construction", "yes"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(72, 28, 0, 1)",
+        "line-width": {"stops": [[6, 1.5], [10, 6]]}
+      }
+    },
+    {
       "id": "rail-branch-railway-construction",
       "type": "line",
       "source": "Hack4RailRailways",
@@ -532,6 +567,7 @@
         ["==", "highspeed", "yes"],
         ["!=", "construction", "yes"]
       ],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(122, 47, 0, 1)",
         "line-width": {"stops": [[6, 1], [10, 3]]}
