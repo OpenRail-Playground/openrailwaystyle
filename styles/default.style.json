@@ -186,25 +186,6 @@
       }
     },
     {
-      "id": "tunnel_railway_transit",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 0,
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "tunnel"],
-        ["==", "class", "transit"]
-      ],
-      "layout": {"line-cap": "butt", "line-join": "miter"},
-      "paint": {
-        "line-color": "hsl(34, 12%, 66%)",
-        "line-dasharray": [3, 3],
-        "line-opacity": {"base": 1, "stops": [[11, 0], [16, 1]]}
-      }
-    },
-    {
       "id": "tunnel_minor",
       "type": "line",
       "source": "openmaptiles",
@@ -239,6 +220,141 @@
         "line-color": "#fff",
         "line-dasharray": [0.28, 0.14],
         "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 30]]}
+      }
+    },
+    {
+      "id": "rail-branch-railway-tunnel-casing",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "branch",
+      "minzoom": 8,
+      "filter": ["all", ["!=", "construction", "yes"], ["==", "tunnel", "yes"]],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt",
+        "line-miter-limit": 1,
+        "line-round-limit": 1
+      },
+      "paint": {
+        "line-gap-width": 0,
+        "line-color": "rgba(200, 138, 86, 1)",
+        "line-opacity": 1,
+        "line-width": {
+          "stops": [[1, 0], [8, 1], [16, 3]],
+          "type": "exponential",
+          "base": 1
+        },
+        "line-dasharray": [0.8, 0.4]
+      }
+    },
+    {
+      "id": "rail-main-railway-casing-tunnel",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        ["!=", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["==", "tunnel", "yes"]
+      ],
+      "layout": {
+        "line-join": "miter",
+        "line-cap": "butt",
+        "line-miter-limit": 0,
+        "line-round-limit": 0,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-width": {"stops": [[2, 0], [3, 0.2], [7, 1.5], [10, 4]]},
+        "line-gap-width": 0,
+        "line-color": "rgba(145, 52, 0, 1)",
+        "line-dasharray": [0.8, 0.3]
+      }
+    },
+    {
+      "id": "rail-high-speed-rail-casing-tunnel",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "filter": [
+        "all",
+        ["==", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["==", "tunnel", "yes"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(72, 28, 0, 1)",
+        "line-width": {"stops": [[6, 1.5], [10, 5]]},
+        "line-dasharray": [0.8, 0.3]
+      }
+    },
+    {
+      "id": "rail-branch-railway-tunnel",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "branch",
+      "minzoom": 8,
+      "filter": ["all", ["!=", "construction", "yes"], ["==", "tunnel", "yes"]],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round",
+        "line-miter-limit": 1,
+        "line-round-limit": 1
+      },
+      "paint": {
+        "line-gap-width": 0,
+        "line-color": "rgba(242, 189, 143, 1)",
+        "line-opacity": 1,
+        "line-width": {
+          "stops": [[1, 0], [8, 0.6], [16, 2]],
+          "type": "exponential",
+          "base": 1
+        }
+      }
+    },
+    {
+      "id": "rail-high-speed-rail-tunnel",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "filter": [
+        "all",
+        ["==", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["==", "tunnel", "yes"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(182, 105, 58, 1)",
+        "line-width": {"stops": [[6, 1], [10, 3]]}
+      }
+    },
+    {
+      "id": "rail-main-railway-tunnel",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        ["!=", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["==", "tunnel", "yes"]
+      ],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt",
+        "line-miter-limit": 1,
+        "line-round-limit": 1,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-width": {"stops": [[2, 0], [3, 0.1], [7, 1], [10, 2]]},
+        "line-gap-width": 0,
+        "line-color": "rgba(240, 127, 60, 1)"
       }
     },
     {
@@ -432,7 +548,12 @@
       "source": "Hack4RailRailways",
       "source-layer": "main",
       "minzoom": 0,
-      "filter": ["all", ["!=", "highspeed", "yes"]],
+      "filter": [
+        "all",
+        ["!=", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["!=", "tunnel", "yes"]
+      ],
       "layout": {
         "line-join": "round",
         "line-cap": "round",
@@ -453,7 +574,8 @@
       "filter": [
         "all",
         ["==", "highspeed", "yes"],
-        ["!=", "construction", "yes"]
+        ["!=", "construction", "yes"],
+        ["!=", "tunnel", "yes"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -467,7 +589,7 @@
       "source": "Hack4RailRailways",
       "source-layer": "branch",
       "minzoom": 4,
-      "filter": ["all"],
+      "filter": ["all", ["==", "construction", "yes"]],
       "layout": {
         "line-join": "round",
         "line-cap": "round",
@@ -488,7 +610,12 @@
       "source": "Hack4RailRailways",
       "source-layer": "main",
       "minzoom": 0,
-      "filter": ["all", ["!=", "highspeed", "yes"]],
+      "filter": [
+        "all",
+        ["!=", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["!=", "tunnel", "yes"]
+      ],
       "layout": {
         "line-join": "round",
         "line-cap": "round",
@@ -523,8 +650,8 @@
       "type": "line",
       "source": "Hack4RailRailways",
       "source-layer": "branch",
-      "minzoom": 4,
-      "filter": ["all"],
+      "minzoom": 8,
+      "filter": ["all", ["!=", "construction", "yes"], ["!=", "tunnel", "yes"]],
       "layout": {
         "line-join": "round",
         "line-cap": "round",
@@ -534,8 +661,12 @@
       "paint": {
         "line-gap-width": 0,
         "line-color": "rgba(200, 138, 86, 1)",
-        "line-opacity": {"stops": [[4, 0], [8, 1]]},
-        "line-width": 1
+        "line-opacity": 1,
+        "line-width": {
+          "stops": [[1, 0], [8, 1], [16, 3]],
+          "type": "exponential",
+          "base": 1
+        }
       }
     },
     {
@@ -544,7 +675,12 @@
       "source": "Hack4RailRailways",
       "source-layer": "main",
       "minzoom": 0,
-      "filter": ["all", ["!=", "highspeed", "yes"]],
+      "filter": [
+        "all",
+        ["!=", "highspeed", "yes"],
+        ["!=", "construction", "yes"],
+        ["!=", "tunnel", "yes"]
+      ],
       "layout": {
         "line-join": "round",
         "line-cap": "round",
@@ -565,7 +701,8 @@
       "filter": [
         "all",
         ["==", "highspeed", "yes"],
-        ["!=", "construction", "yes"]
+        ["!=", "construction", "yes"],
+        ["!=", "tunnel", "yes"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
