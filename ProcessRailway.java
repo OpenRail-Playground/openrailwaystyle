@@ -99,6 +99,9 @@ public class ProcessRailway implements Profile {
             boolean branch = sourceFeature.hasTag("usage", "branch");
             boolean main = sourceFeature.hasTag("usage", "main");
 
+            String tunnel = sourceFeature.getTag("tunnel", "no").toString();
+            String bridge = sourceFeature.getTag("bridge", "no").toString();
+
             var layer = main ? "main" : branch ? "branch" : service ? "service" : railway;
 
             if (main && sourceFeature.hasTag("electrified") && relation_name != null) {
@@ -127,6 +130,8 @@ public class ProcessRailway implements Profile {
                     .setAttr("maxspeed", sourceFeature.getTag("maxspeed"))
                     .setAttr("highspeed", sourceFeature.getTag("highspeed"))
                     .setAttr("subway", sourceFeature.getTag("subway"))
+                    .setAttr("tunnel", tunnel)
+                    .setAttr("bridge", bridge)
                     // don't filter out short line segments even at low zooms because the next step
                     // needs them
                     // to merge lines with the same tags where the endpoints are touching
