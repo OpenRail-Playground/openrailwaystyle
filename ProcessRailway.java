@@ -102,40 +102,35 @@ public class ProcessRailway implements Profile {
             String tunnel = sourceFeature.getTag("tunnel", "no").toString();
             String bridge = sourceFeature.getTag("bridge", "no").toString();
 
+            String brunnel = sourceFeature.hasTag("tunnel") ? "tunnel"
+                    : sourceFeature.hasTag("bridge") ? "bridge" : null;
+
             var layer = main ? "main" : branch ? "branch" : service ? "service" : railway;
 
-            if (main && sourceFeature.hasTag("electrified") && relation_name != null) {
-                features.line(layer)
-                        .setMaxZoom(10)
-                        .setAttr("highspeed", sourceFeature.getTag("highspeed"))
-                        .setAttr("construction", construction ? "yes" : "no")
-                        // don't filter out short line segments even at low zooms because the next step
-                        // needs them
-                        // to merge lines with the same tags where the endpoints are touching
-                        .setMinPixelSize(0);
-            }
-
-            features.line(layer)
-                    .setMinZoom(10)
-                    .setAttr("relation_name", relation_name)
-                    .setAttr("relation_ref", relation_ref)
-                    .setAttr("relation_colour", relation_colour)
-                    .setAttr("relation_network", relation_network)
-                    .setAttr("construction", construction ? "yes" : "no")
-                    .setAttr("electrified", sourceFeature.getTag("electrified"))
-                    .setAttr("tunnel", sourceFeature.getTag("tunnel"))
-                    .setAttr("bridge", sourceFeature.getTag("bridge"))
-                    .setAttr("voltage", sourceFeature.getTag("voltage"))
-                    .setAttr("frequency", sourceFeature.getTag("frequency"))
-                    .setAttr("maxspeed", sourceFeature.getTag("maxspeed"))
+            var minZoom = main ? 0 : branch ? 10 : 12;
+            var feature = features.line(layer)
+                    .setMinZoom(minZoom)
                     .setAttr("highspeed", sourceFeature.getTag("highspeed"))
-                    .setAttr("subway", sourceFeature.getTag("subway"))
-                    .setAttr("tunnel", tunnel)
-                    .setAttr("bridge", bridge)
+                    .setAttrWithMinzoom("relation_name", relation_name, 10)
+                    .setAttrWithMinzoom("relation_ref", relation_ref, 10)
+                    .setAttrWithMinzoom("relation_colour", relation_colour, 10)
+                    .setAttrWithMinzoom("relation_network", relation_network, 10)
+                    .setAttrWithMinzoom("electrified", sourceFeature.getTag("electrified"), 10)
+                    .setAttrWithMinzoom("voltage", sourceFeature.getTag("voltage"), 10)
+                    .setAttrWithMinzoom("frequency", sourceFeature.getTag("frequency"), 10)
+                    .setAttrWithMinzoom("maxspeed", sourceFeature.getTag("maxspeed"), 10)
                     // don't filter out short line segments even at low zooms because the next step
                     // needs them
                     // to merge lines with the same tags where the endpoints are touching
                     .setMinPixelSize(0);
+
+            if (construction) {
+                feature.setAttr("construction", true);
+            }
+
+            if (brunnel != null) {
+                feature.setAttrWithMinSize("brunnel", brunnel, 6);
+            }
 
         }
 

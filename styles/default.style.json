@@ -16,7 +16,7 @@
     },
     "Hack4RailRailways": {
       "type": "vector",
-      "url": "pmtiles://https://tristram.nbg1.your-objectstorage.com/europe-railway.pmtiles"
+      "url": "pmtiles://http://127.0.0.1:37313/data/europe-railway.pmtiles"
     }
   },
   "sprite": "https://osm.nbg1.your-objectstorage.com/sprites/basic",
@@ -508,14 +508,13 @@
       "filter": [
         "all",
         [
-          "!=",
-          "construction",
-          "yes"
+          "has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -566,14 +565,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -625,14 +623,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -667,14 +664,13 @@
       "filter": [
         "all",
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -720,14 +716,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -763,14 +758,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "==",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1298,14 +1292,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1352,14 +1345,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1390,9 +1382,8 @@
       "filter": [
         "all",
         [
-          "==",
-          "construction",
-          "yes"
+          "has",
+          "construction"
         ]
       ],
       "layout": {
@@ -1437,14 +1428,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1495,9 +1485,8 @@
           "yes"
         ],
         [
-          "==",
-          "construction",
-          "yes"
+          "has",
+          "construction"
         ]
       ],
       "paint": {
@@ -1529,14 +1518,13 @@
       "filter": [
         "all",
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1583,14 +1571,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
@@ -1637,14 +1624,13 @@
           "yes"
         ],
         [
-          "!=",
-          "construction",
-          "yes"
+          "!has",
+          "construction"
         ],
         [
           "!=",
-          "tunnel",
-          "yes"
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
