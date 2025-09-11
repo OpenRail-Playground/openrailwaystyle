@@ -16,7 +16,7 @@
     },
     "Hack4RailRailways": {
       "type": "vector",
-      "url": "pmtiles://http://127.0.0.1:37313/data/europe-railway.pmtiles"
+      "url": "pmtiles://https://tristram.nbg1.your-objectstorage.com/europe-railway.pmtiles"
     }
   },
   "sprite": "https://osm.nbg1.your-objectstorage.com/sprites/basic",
@@ -608,6 +608,150 @@
           0.8,
           0.3
         ]
+      }
+    },
+    {
+      "id": "rail-branch-bridge-casing",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "branch",
+      "filter": [
+        "all",
+        [
+          "!has",
+          "construction"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(0, 0, 0, 1)",
+        "line-width": {
+          "stops": [
+            [
+              10,
+              3
+            ],
+            [
+              14,
+              10
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "rail-branch-bridge",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "branch",
+      "filter": [
+        "all",
+        [
+          "!has",
+          "construction"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              10,
+              2
+            ],
+            [
+              14,
+              8
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "rail-main-bridge-casing",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "filter": [
+        "all",
+        [
+          "!has",
+          "construction"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(0, 0, 0, 1)",
+        "line-width": {
+          "stops": [
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              16
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "rail-main-bridge",
+      "type": "line",
+      "source": "Hack4RailRailways",
+      "source-layer": "main",
+      "filter": [
+        "all",
+        [
+          "!has",
+          "construction"
+        ],
+        [
+          "==",
+          "brunnel",
+          "bridge"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              6,
+              5
+            ],
+            [
+              10,
+              14
+            ]
+          ]
+        }
       }
     },
     {
