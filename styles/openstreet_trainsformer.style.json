@@ -17,7 +17,7 @@
     },
     "Tuiles en Liberté": {
       "type": "vector",
-      "url": "pmtiles://https://osm.nbg1.your-objectstorage.com/planet.pmtiles"
+      "url": "pmtiles://https://tuiles.enliberte.fr/planet.pmtiles"
     },
     "thunderforest_transport": {
       "type": "vector",
@@ -34,16 +34,27 @@
     {
       "id": "background",
       "type": "background",
-      "layout": {"visibility": "none"},
-      "paint": {"background-color": "rgb(239,239,239)", "background-opacity": 1}
+      "layout": { "visibility": "none" },
+      "paint": {
+        "background-color": "rgb(239,239,239)",
+        "background-opacity": 1
+      }
     },
     {
       "id": "natural_earth",
       "type": "raster",
       "source": "natural_earth_shaded_relief",
       "maxzoom": 6,
-      "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": {"base": 1.5, "stops": [[0, 0.6], [6, 0.1]]}}
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "raster-opacity": {
+          "base": 1.5,
+          "stops": [
+            [0, 0.6],
+            [6, 0.1]
+          ]
+        }
+      }
     },
     {
       "id": "park",
@@ -101,7 +112,7 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landcover",
       "filter": ["all", ["==", "class", "grass"]],
-      "layout": {"visibility": "none"},
+      "layout": { "visibility": "none" },
       "paint": {
         "fill-antialias": false,
         "fill-color": "rgba(99, 190, 48, 1)",
@@ -140,8 +151,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landuse",
       "filter": ["==", "class", "pitch"],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "#DEE3CD"}
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#DEE3CD" }
     },
     {
       "id": "landuse_track",
@@ -149,8 +160,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landuse",
       "filter": ["==", "class", "track"],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "#DEE3CD"}
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#DEE3CD" }
     },
     {
       "id": "landuse_cemetery",
@@ -158,8 +169,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landuse",
       "filter": ["==", "class", "cemetery"],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "hsl(75, 37%, 81%)"}
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "hsl(75, 37%, 81%)" }
     },
     {
       "id": "landuse_hospital",
@@ -167,8 +178,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landuse",
       "filter": ["==", "class", "hospital"],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "rgba(255, 232, 246, 1)"}
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "rgba(255, 232, 246, 1)" }
     },
     {
       "id": "landuse_school",
@@ -176,8 +187,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landuse",
       "filter": ["==", "class", "school"],
-      "layout": {"visibility": "none"},
-      "paint": {"fill-color": "rgb(236,238,204)"}
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "rgb(236,238,204)" }
     },
     {
       "id": "waterway_tunnel",
@@ -189,8 +200,19 @@
       "paint": {
         "line-color": "#a0c8f0",
         "line-dasharray": [3, 3],
-        "line-gap-width": {"stops": [[12, 0], [20, 6]]},
-        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 2]]},
+        "line-gap-width": {
+          "stops": [
+            [12, 0],
+            [20, 6]
+          ]
+        },
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [8, 1],
+            [20, 2]
+          ]
+        },
         "line-opacity": 0.5
       }
     },
@@ -200,10 +222,16 @@
       "source": "Tuiles en Liberté",
       "source-layer": "waterway",
       "filter": ["all", ["==", "class", "river"], ["!=", "brunnel", "tunnel"]],
-      "layout": {"line-cap": "round"},
+      "layout": { "line-cap": "round" },
       "paint": {
         "line-color": "#a0c8f0",
-        "line-width": {"base": 1.2, "stops": [[11, 0.5], [20, 6]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 0.5],
+            [20, 6]
+          ]
+        }
       }
     },
     {
@@ -213,10 +241,16 @@
       "source-layer": "waterway",
       "minzoom": 17,
       "filter": ["all", ["!=", "class", "river"], ["!=", "brunnel", "tunnel"]],
-      "layout": {"line-cap": "round", "visibility": "visible"},
+      "layout": { "line-cap": "round", "visibility": "visible" },
       "paint": {
         "line-color": "#a0c8f0",
-        "line-width": {"base": 1.3, "stops": [[13, 0.5], [20, 6]]}
+        "line-width": {
+          "base": 1.3,
+          "stops": [
+            [13, 0.5],
+            [20, 6]
+          ]
+        }
       }
     },
     {
@@ -225,8 +259,8 @@
       "source": "Tuiles en Liberté",
       "source-layer": "water",
       "filter": ["all", ["!=", "brunnel", "tunnel"]],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(210, 230, 255, 1)"}
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(210, 230, 255, 1)" }
     },
     {
       "id": "landcover_sand",
@@ -234,7 +268,7 @@
       "source": "Tuiles en Liberté",
       "source-layer": "landcover",
       "filter": ["all", ["==", "class", "sand"]],
-      "paint": {"fill-color": "rgba(247, 239, 195, 1)"}
+      "paint": { "fill-color": "rgba(247, 239, 195, 1)" }
     },
     {
       "id": "aeroway_fill",
@@ -243,7 +277,7 @@
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": ["==", "$type", "Polygon"],
-      "paint": {"fill-color": "rgba(229, 228, 224, 1)", "fill-opacity": 0.7}
+      "paint": { "fill-color": "rgba(229, 228, 224, 1)", "fill-opacity": 0.7 }
     },
     {
       "id": "aeroway_runway",
@@ -258,7 +292,13 @@
       ],
       "paint": {
         "line-color": "#f0ede9",
-        "line-width": {"base": 1.2, "stops": [[11, 3], [20, 16]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 3],
+            [20, 16]
+          ]
+        }
       }
     },
     {
@@ -274,7 +314,13 @@
       ],
       "paint": {
         "line-color": "#f0ede9",
-        "line-width": {"base": 1.2, "stops": [[11, 0.5], [20, 6]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 0.5],
+            [20, 6]
+          ]
+        }
       }
     },
     {
@@ -288,13 +334,18 @@
         ["==", "ramp", 1],
         ["==", "brunnel", "tunnel"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-dasharray": [0.5, 0.25],
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -308,11 +359,18 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "service", "track"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#cfcdca",
         "line-dasharray": [0.5, 0.25],
-        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15, 1],
+            [16, 4],
+            [20, 11]
+          ]
+        }
       }
     },
     {
@@ -321,12 +379,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "ramp", 1], ["==", "brunnel", "tunnel"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -340,13 +403,23 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "street", "street_limited"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#cfcdca",
-        "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
+        "line-opacity": {
+          "stops": [
+            [12, 0],
+            [12.5, 1]
+          ]
+        },
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 0.5], [13, 1], [14, 4], [20, 15]]
+          "stops": [
+            [12, 0.5],
+            [13, 1],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -361,10 +434,16 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "secondary", "tertiary"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
-        "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [8, 1.5],
+            [20, 17]
+          ]
+        }
       }
     },
     {
@@ -377,12 +456,17 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -397,13 +481,18 @@
         ["!=", "ramp", 1],
         ["==", "brunnel", "tunnel"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-dasharray": [0.5, 0.25],
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -422,7 +511,13 @@
       "paint": {
         "line-color": "rgba(255, 0, 0, 0.5)",
         "line-dasharray": [1, 0.75],
-        "line-width": {"base": 1.2, "stops": [[14, 0.5], [20, 2]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 0.5],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -436,12 +531,17 @@
         ["==", "ramp", 1],
         ["==", "brunnel", "tunnel"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fc8",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -455,10 +555,17 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "service", "track"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[15.5, 0], [16, 2], [20, 7.5]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15.5, 0],
+            [16, 2],
+            [20, 7.5]
+          ]
+        }
       }
     },
     {
@@ -467,12 +574,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "ramp", 1], ["==", "brunnel", "tunnel"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff4c6",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -482,10 +594,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "minor"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[13.5, 0], [14, 2.5], [20, 11.5]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [13.5, 0],
+            [14, 2.5],
+            [20, 11.5]
+          ]
+        }
       }
     },
     {
@@ -499,10 +618,17 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "secondary", "tertiary"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff4c6",
-        "line-width": {"base": 1.2, "stops": [[6.5, 0], [7, 0.5], [20, 10]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [6.5, 0],
+            [7, 0.5],
+            [20, 10]
+          ]
+        }
       }
     },
     {
@@ -515,10 +641,17 @@
         ["==", "brunnel", "tunnel"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff4c6",
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -532,12 +665,22 @@
         ["!=", "ramp", 1],
         ["==", "brunnel", "tunnel"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": {
-          "stops": [[5, "hsl(26, 87%, 62%)"], [6, "rgba(185, 147, 97, 1)"]]
+          "stops": [
+            [5, "hsl(26, 87%, 62%)"],
+            [6, "rgba(185, 147, 97, 1)"]
+          ]
         },
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -548,7 +691,14 @@
       "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -557,11 +707,18 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "tunnel"], ["==", "class", "rail"]],
-      "layout": {"visibility": "none"},
+      "layout": { "visibility": "none" },
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -576,7 +733,14 @@
       ],
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -592,7 +756,14 @@
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -602,8 +773,8 @@
       "source-layer": "transportation",
       "minzoom": 15,
       "filter": ["all", ["==", "$type", "Polygon"]],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-pattern": "pedestrian_polygon"}
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-pattern": "pedestrian_polygon" }
     },
     {
       "id": "road_motorway_link_casing",
@@ -626,7 +797,12 @@
         "line-color": "rgba(77, 17, 154, 1)",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -648,7 +824,14 @@
       },
       "paint": {
         "line-color": "#cfcdca",
-        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15, 1],
+            [16, 4],
+            [20, 11]
+          ]
+        }
       }
     },
     {
@@ -672,7 +855,12 @@
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -696,10 +884,20 @@
       },
       "paint": {
         "line-color": "#cfcdca",
-        "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
+        "line-opacity": {
+          "stops": [
+            [12, 0],
+            [12.5, 1]
+          ]
+        },
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 0.5], [13, 1], [14, 4], [20, 20]]
+          "stops": [
+            [12, 0.5],
+            [13, 1],
+            [14, 4],
+            [20, 20]
+          ]
         }
       }
     },
@@ -722,7 +920,13 @@
       },
       "paint": {
         "line-color": "#e9ac77",
-        "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [8, 1.5],
+            [20, 17]
+          ]
+        }
       }
     },
     {
@@ -735,12 +939,17 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": { "line-join": "round", "visibility": "visible" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -765,7 +974,12 @@
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -781,11 +995,17 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["in", "class", "path", "pedestrian"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": { "line-join": "round", "visibility": "visible" },
       "paint": {
         "line-color": "rgba(255, 0, 0, 0.5)",
         "line-dasharray": [1, 0.7],
-        "line-width": {"base": 1.2, "stops": [[14, 1], [20, 2]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 1],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -809,7 +1029,12 @@
         "line-color": "#fc8",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -831,7 +1056,14 @@
       },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[15.5, 0], [16, 2], [20, 7.5]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15.5, 0],
+            [16, 2],
+            [20, 7.5]
+          ]
+        }
       }
     },
     {
@@ -846,12 +1078,17 @@
         ["==", "ramp", 1],
         ["!in", "class", "pedestrian", "path", "track", "service", "motorway"]
       ],
-      "layout": {"line-cap": "round", "line-join": "round"},
+      "layout": { "line-cap": "round", "line-join": "round" },
       "paint": {
         "line-color": "#fea",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -874,7 +1111,14 @@
       },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[13.5, 0], [14, 2.5], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [13.5, 0],
+            [14, 2.5],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -895,7 +1139,14 @@
       },
       "paint": {
         "line-color": "rgba(250, 250, 200, 1)",
-        "line-width": {"base": 1.2, "stops": [[6.5, 0], [8, 0.5], [20, 13]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [6.5, 0],
+            [8, 0.5],
+            [20, 13]
+          ]
+        }
       }
     },
     {
@@ -908,10 +1159,17 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": { "line-join": "round", "visibility": "visible" },
       "paint": {
         "line-color": "rgba(250, 250, 210, 1)",
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -934,9 +1192,19 @@
       "paint": {
         "line-color": {
           "base": 1,
-          "stops": [[5, "hsl(26, 87%, 62%)"], [6, "rgba(185, 147, 97, 1)"]]
+          "stops": [
+            [5, "hsl(26, 87%, 62%)"],
+            [6, "rgba(185, 147, 97, 1)"]
+          ]
         },
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -949,10 +1217,17 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["==", "class", "rail"]
       ],
-      "layout": {"visibility": "visible"},
+      "layout": { "visibility": "visible" },
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -965,11 +1240,18 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["==", "class", "rail"]
       ],
-      "layout": {"visibility": "none"},
+      "layout": { "visibility": "none" },
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -982,10 +1264,17 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["==", "class", "transit"]
       ],
-      "layout": {"visibility": "visible"},
+      "layout": { "visibility": "visible" },
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -998,11 +1287,18 @@
         ["!in", "brunnel", "bridge", "tunnel"],
         ["==", "class", "transit"]
       ],
-      "layout": {"visibility": "none"},
+      "layout": { "visibility": "none" },
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -1016,12 +1312,17 @@
         ["==", "ramp", 1],
         ["==", "brunnel", "bridge"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -1035,10 +1336,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "service", "track"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#cfcdca",
-        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15, 1],
+            [16, 4],
+            [20, 11]
+          ]
+        }
       }
     },
     {
@@ -1047,12 +1355,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "class", "link"], ["==", "brunnel", "bridge"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 1], [13, 3], [14, 4], [20, 15]]
+          "stops": [
+            [12, 1],
+            [13, 3],
+            [14, 4],
+            [20, 15]
+          ]
         }
       }
     },
@@ -1066,13 +1379,23 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "street", "street_limited"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "hsl(36, 6%, 74%)",
-        "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
+        "line-opacity": {
+          "stops": [
+            [12, 0],
+            [12.5, 1]
+          ]
+        },
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 0.5], [13, 1], [14, 4], [20, 25]]
+          "stops": [
+            [12, 0.5],
+            [13, 1],
+            [14, 4],
+            [20, 25]
+          ]
         }
       }
     },
@@ -1087,11 +1410,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "path", "pedestrian"]
       ],
-      "layout": {"visibility": "none"},
+      "layout": { "visibility": "none" },
       "paint": {
         "line-color": "hsl(35, 6%, 80%)",
         "line-dasharray": [1, 0],
-        "line-width": {"base": 1.2, "stops": [[14, 1.5], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 1.5],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -1105,10 +1434,16 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "secondary", "tertiary"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
-        "line-width": {"base": 1.2, "stops": [[8, 1.5], [20, 17]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [8, 1.5],
+            [20, 17]
+          ]
+        }
       }
     },
     {
@@ -1122,12 +1457,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": { "line-join": "round", "visibility": "visible" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -1142,12 +1482,17 @@
         ["!=", "ramp", 1],
         ["==", "brunnel", "bridge"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#e9ac77",
         "line-width": {
           "base": 1.2,
-          "stops": [[5, 0.4], [6, 0.7], [7, 1.75], [20, 22]]
+          "stops": [
+            [5, 0.4],
+            [6, 0.7],
+            [7, 1.75],
+            [20, 22]
+          ]
         }
       }
     },
@@ -1164,7 +1509,13 @@
       ],
       "paint": {
         "line-dasharray": [1, 0.3],
-        "line-width": {"base": 1.2, "stops": [[14, 0.5], [20, 2]]},
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 0.5],
+            [20, 2]
+          ]
+        },
         "line-color": "rgba(255, 0, 0, 0.5)"
       }
     },
@@ -1179,12 +1530,17 @@
         ["==", "ramp", 1],
         ["==", "brunnel", "bridge"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fc8",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -1198,10 +1554,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "service", "track"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[15.5, 0], [16, 2], [20, 7.5]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [15.5, 0],
+            [16, 2],
+            [20, 7.5]
+          ]
+        }
       }
     },
     {
@@ -1210,12 +1573,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "class", "link"], ["==", "brunnel", "bridge"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fea",
         "line-width": {
           "base": 1.2,
-          "stops": [[12.5, 0], [13, 1.5], [14, 2.5], [20, 11.5]]
+          "stops": [
+            [12.5, 0],
+            [13, 1.5],
+            [14, 2.5],
+            [20, 11.5]
+          ]
         }
       }
     },
@@ -1225,10 +1593,17 @@
       "source": "Tuiles en Liberté",
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "bridge"], ["in", "class", "minor"]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[13.5, 0], [14, 2.5], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [13.5, 0],
+            [14, 2.5],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -1242,10 +1617,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "secondary", "tertiary"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#fea",
-        "line-width": {"base": 1.2, "stops": [[6.5, 0], [7, 0.5], [20, 10]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [6.5, 0],
+            [7, 0.5],
+            [20, 10]
+          ]
+        }
       }
     },
     {
@@ -1258,10 +1640,17 @@
         ["==", "brunnel", "bridge"],
         ["in", "class", "primary", "trunk"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": { "line-join": "round", "visibility": "visible" },
       "paint": {
         "line-color": "#fea",
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -1275,12 +1664,22 @@
         ["!=", "ramp", 1],
         ["==", "brunnel", "bridge"]
       ],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": {
-          "stops": [[5, "hsl(26, 87%, 62%)"], [6, "rgba(185, 147, 97, 1)"]]
+          "stops": [
+            [5, "hsl(26, 87%, 62%)"],
+            [6, "rgba(185, 147, 97, 1)"]
+          ]
         },
-        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0],
+            [7, 1],
+            [20, 18]
+          ]
+        }
       }
     },
     {
@@ -1291,7 +1690,14 @@
       "filter": ["all", ["==", "class", "rail"], ["==", "brunnel", "bridge"]],
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -1303,7 +1709,14 @@
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -1318,7 +1731,14 @@
       ],
       "paint": {
         "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14, 0.4],
+            [15, 0.75],
+            [20, 2]
+          ]
+        }
       }
     },
     {
@@ -1334,7 +1754,14 @@
       "paint": {
         "line-color": "#bbb",
         "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [14.5, 0],
+            [15, 3],
+            [20, 8]
+          ]
+        }
       }
     },
     {
@@ -1344,12 +1771,15 @@
       "source-layer": "building",
       "minzoom": 15,
       "maxzoom": 18,
-      "layout": {"visibility": "visible"},
+      "layout": { "visibility": "visible" },
       "paint": {
         "fill-color": "rgba(225, 225, 225, 1)",
         "fill-outline-color": {
           "base": 1,
-          "stops": [[13, "hsla(35, 6%, 79%, 0.32)"], [14, "hsl(35, 6%, 79%)"]]
+          "stops": [
+            [13, "hsla(35, 6%, 79%, 0.32)"],
+            [14, "hsl(35, 6%, 79%)"]
+          ]
         }
       }
     },
@@ -1502,11 +1932,18 @@
       "source-layer": "boundary",
       "minzoom": 8,
       "filter": ["all", ["in", "admin_level", 3, 4]],
-      "layout": {"line-join": "round"},
+      "layout": { "line-join": "round" },
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [5, 1],
-        "line-width": {"base": 1, "stops": [[4, 0.4], [5, 1], [12, 1.8]]}
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [4, 0.4],
+            [5, 1],
+            [12, 1.8]
+          ]
+        }
       }
     },
     {
@@ -1516,11 +1953,24 @@
       "source-layer": "boundary",
       "maxzoom": 5,
       "filter": ["all", ["==", "admin_level", 2], ["!has", "claimed_by"]],
-      "layout": {"line-cap": "round", "line-join": "round"},
+      "layout": { "line-cap": "round", "line-join": "round" },
       "paint": {
         "line-color": "hsl(248, 1%, 41%)",
-        "line-opacity": {"base": 1, "stops": [[0, 0.4], [4, 1]]},
-        "line-width": {"base": 1, "stops": [[3, 1], [5, 1.2], [12, 3]]}
+        "line-opacity": {
+          "base": 1,
+          "stops": [
+            [0, 0.4],
+            [4, 1]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [3, 1],
+            [5, 1.2],
+            [12, 3]
+          ]
+        }
       }
     },
     {
@@ -1530,11 +1980,24 @@
       "source-layer": "boundary",
       "minzoom": 5,
       "filter": ["all", ["==", "admin_level", 2]],
-      "layout": {"line-cap": "round", "line-join": "round"},
+      "layout": { "line-cap": "round", "line-join": "round" },
       "paint": {
         "line-color": "hsl(248, 1%, 41%)",
-        "line-opacity": {"base": 1, "stops": [[0, 0.4], [4, 1]]},
-        "line-width": {"base": 1, "stops": [[3, 1], [5, 1.2], [12, 3]]}
+        "line-opacity": {
+          "base": 1,
+          "stops": [
+            [0, 0.4],
+            [4, 1]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [3, 1],
+            [5, 1.2],
+            [12, 3]
+          ]
+        }
       }
     },
     {
@@ -1689,7 +2152,13 @@
         "text-field": "{name}",
         "text-font": ["Roboto Regular"],
         "text-offset": [0, 0.15],
-        "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]},
+        "text-size": {
+          "base": 1,
+          "stops": [
+            [13, 12],
+            [14, 13]
+          ]
+        },
         "visibility": "visible"
       },
       "paint": {
@@ -1708,7 +2177,13 @@
       "layout": {
         "icon-image": "default_{ref_length}",
         "icon-rotation-alignment": "viewport",
-        "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
+        "symbol-placement": {
+          "base": 1,
+          "stops": [
+            [10, "point"],
+            [11, "line"]
+          ]
+        },
         "symbol-spacing": 500,
         "text-field": "{ref}",
         "text-font": ["Roboto Regular"],
@@ -1741,7 +2216,13 @@
         "text-font": ["Roboto Condensed Italic"],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
-        "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [12, 10],
+            [15, 14]
+          ]
+        },
         "text-transform": "uppercase"
       },
       "paint": {
@@ -1760,7 +2241,13 @@
         "text-field": "{name_en}",
         "text-font": ["Roboto Regular"],
         "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]}
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [10, 12],
+            [15, 22]
+          ]
+        }
       },
       "paint": {
         "text-color": "#333",
@@ -1775,13 +2262,25 @@
       "source-layer": "place",
       "filter": ["all", ["==", "class", "town"]],
       "layout": {
-        "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
+        "icon-image": {
+          "base": 1,
+          "stops": [
+            [0, "dot_9"],
+            [8, ""]
+          ]
+        },
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": ["Roboto Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0],
-        "text-size": {"base": 1.2, "stops": [[7, 12], [11, 16]]}
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [7, 12],
+            [11, 16]
+          ]
+        }
       },
       "paint": {
         "text-color": "#333",
@@ -1797,13 +2296,25 @@
       "minzoom": 5,
       "filter": ["all", ["==", "class", "city"]],
       "layout": {
-        "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
+        "icon-image": {
+          "base": 1,
+          "stops": [
+            [0, "dot_9"],
+            [8, ""]
+          ]
+        },
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": ["Roboto Medium"],
         "text-max-width": 8,
         "text-offset": [0, 0],
-        "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [7, 14],
+            [11, 24]
+          ]
+        },
         "icon-allow-overlap": true,
         "icon-optional": false
       },
@@ -1823,7 +2334,12 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": ["Roboto Condensed Italic"],
-        "text-size": {"stops": [[4, 11], [6, 15]]},
+        "text-size": {
+          "stops": [
+            [4, 11],
+            [6, 15]
+          ]
+        },
         "text-transform": "uppercase"
       },
       "paint": {
@@ -1842,7 +2358,12 @@
         "text-field": "{name_en}",
         "text-font": ["Roboto Condensed Italic"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[3, 11], [7, 17]]},
+        "text-size": {
+          "stops": [
+            [3, 11],
+            [7, 17]
+          ]
+        },
         "text-transform": "none"
       },
       "paint": {
@@ -1862,7 +2383,12 @@
         "text-field": "{name_en}",
         "text-font": ["Roboto Condensed Italic"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[2, 11], [5, 17]]},
+        "text-size": {
+          "stops": [
+            [2, 11],
+            [5, 17]
+          ]
+        },
         "text-transform": "none"
       },
       "paint": {
@@ -1882,7 +2408,12 @@
         "text-field": "{name_en}",
         "text-font": ["Roboto Condensed Italic"],
         "text-max-width": 6.25,
-        "text-size": {"stops": [[1, 11], [4, 17]]},
+        "text-size": {
+          "stops": [
+            [1, 11],
+            [4, 17]
+          ]
+        },
         "text-transform": "none"
       },
       "paint": {
@@ -1919,8 +2450,8 @@
       "source-layer": "bus-route",
       "minzoom": 15,
       "filter": ["all"],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(0, 134, 35, 1)", "line-width": 2}
+      "layout": { "visibility": "visible" },
+      "paint": { "line-color": "rgba(0, 134, 35, 1)", "line-width": 2 }
     },
     {
       "id": "publictransport_rail",
@@ -1929,8 +2460,8 @@
       "source-layer": "railway",
       "minzoom": 13,
       "filter": ["all", ["==", "railway", "rail"], ["!has", "service"]],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(255, 0, 0, 1)", "line-width": 1.5}
+      "layout": { "visibility": "visible" },
+      "paint": { "line-color": "rgba(255, 0, 0, 1)", "line-width": 1.5 }
     },
     {
       "id": "publictransport_tram",
@@ -1939,7 +2470,7 @@
       "source-layer": "railway",
       "minzoom": 14,
       "filter": ["all", ["==", "railway", "tram"], ["!has", "service"]],
-      "paint": {"line-color": "rgba(0, 0, 255, 1)", "line-width": 1.5}
+      "paint": { "line-color": "rgba(0, 0, 255, 1)", "line-width": 1.5 }
     },
     {
       "id": "publictransport_aerialway",
@@ -1952,7 +2483,7 @@
         ["==", ["get", "class"], "aerialway"],
         ["any", ["==", ["get", "subclass"], "cabl"]]
       ],
-      "paint": {"line-color": "rgba(0, 0, 0, 1)", "line-width": 1}
+      "paint": { "line-color": "rgba(0, 0, 0, 1)", "line-width": 1 }
     },
     {
       "id": "publictransport_narrow_gauge",
@@ -1969,7 +2500,7 @@
           ["==", ["get", "subclass"], "funicular"]
         ]
       ],
-      "paint": {"line-color": "rgba(0, 0, 0, 1)", "line-width": 1}
+      "paint": { "line-color": "rgba(0, 0, 0, 1)", "line-width": 1 }
     },
     {
       "id": "transit_tram",
